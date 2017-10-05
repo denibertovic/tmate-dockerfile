@@ -2,14 +2,17 @@
 
 .DEFAULT_GOAL =  help
 
+IMAGE_NAME := denibertovic/tmate
+LOCAL_USER_ID ?= $(shell id -u $$USER)
+
 ## Build tmate image
 build:
-	@docker build -t denibertovic/tmate .
+	@docker build -t ${IMAGE_NAME} .
 
 ## Run tmate container
 run:
 	@if test -z "$$WORKDIR"; then echo "ERROR: WORKDIR is not defined."; exit 1; fi;
-	@docker run -it -v $$WORKDIR:/opt/workdir -e LOCAL_USER_ID=1000 denibertovic/tmate bash
+	@docker run -it -v $$WORKDIR:/opt/workdir -e LOCAL_USER_ID=${LOCAL_USER_ID} ${IMAGE_NAME} bash
 
 ## Show help screen.
 help:
