@@ -44,6 +44,8 @@ share-session /path/to/shared/dir
 
 `NOTE`: once inside run `tmate show-messages` to get a list of ssh connection strings that you can share.
 
+`NOTE`: You can also mount in you `.vim` directory and `.vimrc` file the same way.
+
 ## How to build
 
 * run `make build`

@@ -9,6 +9,7 @@ USER_ID=${LOCAL_USER_ID:-9001}
 echo "Starting with UID : $USER_ID"
 useradd --shell /bin/bash -u $USER_ID -o -c "" -m user -d /home/user
 export HOME=/home/user
+chown user. /home/user
 
 gosu user ssh-keygen -q -t rsa -N '' -f /home/user/.ssh/id_rsa
 

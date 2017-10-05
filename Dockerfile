@@ -7,7 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y --no-install-recommends install \
     locales \
     gosu \
-    openssh-client
+    openssh-client \
+    python
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
@@ -23,7 +24,8 @@ ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && apt-get install -y --no-install-recommends  \
     tmate \
-    vim
+    vim \
+    vim-nox
 
 WORKDIR /opt/workdir
 
