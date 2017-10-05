@@ -7,12 +7,12 @@ LOCAL_USER_ID ?= $(shell id -u $$USER)
 
 ## Build tmate image
 build:
-	@docker build -t ${IMAGE_NAME} .
+	@docker build --rm -t ${IMAGE_NAME} .
 
 ## Run tmate container
 run:
 	@if test -z "$$WORKDIR"; then echo "ERROR: WORKDIR is not defined."; exit 1; fi;
-	@docker run -it -v $$WORKDIR:/opt/workdir -e LOCAL_USER_ID=${LOCAL_USER_ID} ${IMAGE_NAME} bash
+	@docker run --rm -it -v $$WORKDIR:/opt/workdir -e LOCAL_USER_ID=${LOCAL_USER_ID} ${IMAGE_NAME} bash
 
 ## Show help screen.
 help:
