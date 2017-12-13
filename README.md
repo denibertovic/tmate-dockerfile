@@ -19,7 +19,7 @@ WORKDIR=/path/to/dir docker run --rm -it \
     tamte
 ```
 
-`NOTE`: This will mount the in the `$WORKDIR` that you specify into the docker
+`NOTE`: This will mount the `$WORKDIR` that you specify into the docker
 container's `/opt/workdir` directoy. That way the user connecting to your session
 can only see the filesystem inside the container in that directoy.
 
